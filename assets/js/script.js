@@ -110,8 +110,8 @@ function readOutLoud(message) {
     var speech = new SpeechSynthesisUtterance(); 
     // isi kalimat dan atribut voice
     speech.text = message;
-    speech.volume = 1;
-    speech.rate = 1;
+    speech.volume = 0.9;
+    speech.rate = 0.9;
     speech.pitch = 1;
     speech.lang = "id-ID";
 
@@ -124,15 +124,15 @@ function renderNotes(notes) {
             html += `<li class="note">
                         <p class="header">
                             <span class="date">${note.date}</span>
-                                <a href="#" class="listen-note" title="Listen to Note">Listen to Note</a>
-                                <a href="#" class="delete-note" title="Delete">Delete</a>
+                                <a href="#" class="listen-note" title="Putar Suara">Putar Suara</a>
+                                <a href="#" class="delete-note" title="Delete">Hapus</a>
                         </p>
                         <p class="content">${note.content}</p>
                     </li>`;
         });
     } else {
-        html = '<li><p class="content">Kamu tidak memiliki pesan suara.</p></li>';
-        console.log("Kamu tidak memiliki pesan suara.");
+        html = '<li><p class="content">Belum ada catatan yang tersimpan.</p></li>';
+        console.log("Belum ada catatan yang tersimpan.");
     }
     notesList.html(html);
 }
@@ -154,7 +154,7 @@ function renderSingleNote(note) {
                     <p class="content">${note.content}</p>
                 </li>`;
     } else {
-        html = '<li><p class="content">Kamu tidak memiliki pesan suara.</p></li>';
+        html = '<li><p class="content">Belum ada catatan yang tersimpan.</p></li>';
         console.log("No note");
     }
     notesList.html(html);
